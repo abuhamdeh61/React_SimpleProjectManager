@@ -63,7 +63,6 @@ To run the project locally, follow these steps:
 
 - Various development dependencies for TypeScript, Tailwind CSS, etc.
 
-```
-
+```bash
 Please note that this is a simplified overview, and you may need additional information about the project structure and functionality. Feel free to explore the code for more details.
 ```
