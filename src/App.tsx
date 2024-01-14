@@ -31,10 +31,21 @@ function App() {
       deadLine: DeadLine,
       tasks: [],
     };
+    //check if the project is already exist
+    if (getAll().some((project: any) => project.title.toString().toLowerCase() === Title.toString().toLowerCase())) {
+      const dialog = document.getElementById(
+        "ProjectAlreadyExist"
+      ) as HTMLDialogElement;
+      dialog.showModal();
+      return;
+    }
     push(newProject);
-    setProjectsState({
-      ...projectsState,
-      projects: getAll(),
+    setProjectsState((prevState: any) => {
+      return {
+        ...prevState,
+        selectedProjectId: newProject.id,
+        projects: getAll(),
+      };
     });
   };
 
@@ -63,6 +74,17 @@ function App() {
     <main className="flex gap-10 h-screen">
       <SideBar getAll={getAll} setProjectsState={setProjectsState} />
       <div className="w-[35rem] mt-20 ml-[10rem]">{content}</div>
+      <dialog id="ProjectAlreadyExist" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <h3 className="font-bold text-lg text-red-500 ">Error!</h3>
+          <p className="py-4">Project Already Exist!</p>
+        </div>
+      </dialog>
     </main>
   );
 }
