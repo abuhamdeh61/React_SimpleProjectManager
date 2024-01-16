@@ -9,7 +9,6 @@ export default function Tasks({ id, onAddTask, onRemoveTask }: any) {
   const handleAddTask = () => {
     const value = (document.getElementById("task") as HTMLInputElement)?.value;
     if (!value) return;
-
     if (tasks.includes(value)) {
       const dialog = document.getElementById(
         "taskAddError"
@@ -35,7 +34,7 @@ export default function Tasks({ id, onAddTask, onRemoveTask }: any) {
   let content = <p className="my-20 text-2xl text-stone-400">No tasks yet</p>;
   if (tasks.length > 0) {
     content = (
-      <ul className="flex-between bg-slate-400 my-10 rounded-lg py-5 overflow-y-scroll h-64">
+      <ul className="flex-between bg-slate-400 my-10 rounded-lg py-5 overflow-y-scroll h-48">
         {tasks.map((task: any) => (
           <li key={tasks.indexOf(task)}>
             <div className="flex justify-between mx-5 my-3">
