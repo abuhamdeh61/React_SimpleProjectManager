@@ -120,7 +120,7 @@ function EditProject({ project, setIsEditing, setProjectsState }: any) {
   return (
     <>
       <div data-theme="">
-        <div className="mb-10 mr-10">
+        <div className="mr-10">
           <Input
             name="title"
             defaultValue={project.title}
